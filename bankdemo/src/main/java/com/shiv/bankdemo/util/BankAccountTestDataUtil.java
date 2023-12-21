@@ -4,6 +4,7 @@ package com.shiv.bankdemo.util;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import com.shiv.bankdemo.model.AccountType;
 import com.shiv.bankdemo.model.BankAccount;
@@ -14,7 +15,6 @@ import com.shiv.bankdemo.model.TransactionType;
  * This class is created to provide bank transaction test data
  */
 public class BankAccountTestDataUtil {
-	private final static String USER_IDENTIFIER = "15d88afa-d5b9-4bf4-9b91-5333ebb6f139";
 
 	/**
 	 * Test data for account transaction
@@ -82,6 +82,11 @@ public class BankAccountTestDataUtil {
 	}
 
 	/**
+	 * I have utilized UUID.randomUUID() to generate the identifier. During real
+	 * time, it might be necessary to incorporate logic for getting the actual
+	 * value. Additionally, consider adding credit card masking logic if the
+	 * mask cc number is not present
+	 * 
 	 * @param string
 	 * @return
 	 */
@@ -89,11 +94,11 @@ public class BankAccountTestDataUtil {
 		BankAccount bankAccount = null;
 		switch (type) {
 		case BANK_ACCOUNT:
-			bankAccount = new BankAccount(type, "d65c1be2-0e07-4ec8-ba44-60dfbe8fef77", USER_IDENTIFIER,
+			bankAccount = new BankAccount(type, UUID.randomUUID(), UUID.randomUUID(),
 					getBankAccountTransactionTestData());
 			break;
 		case CC_ACCOUNT:
-			bankAccount = new BankAccount(type, "****-****-****-1234", USER_IDENTIFIER,
+			bankAccount = new BankAccount(type, UUID.randomUUID(), UUID.randomUUID(),
 					getCcAccountTransactionTestData());
 			break;
 

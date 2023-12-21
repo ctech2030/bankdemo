@@ -2,6 +2,7 @@
 package com.shiv.bankdemo.model;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -16,10 +17,10 @@ import javax.validation.constraints.NotEmpty;
  */
 public class BankAccount {
 	@NotBlank
-	private final String identifier;
+	private final UUID  identifier;
 
 	@NotBlank
-	private final String userIdentifier;
+	private final UUID  userIdentifier;
 
 	@NotBlank
 	private final AccountType accountType;
@@ -33,7 +34,7 @@ public class BankAccount {
 	 * @param userIdentifier
 	 * @param transactions
 	 */
-	public BankAccount(@NotBlank AccountType accountType, @NotBlank String identifier, @NotBlank String userIdentifier,
+	public BankAccount(@NotBlank AccountType accountType, @NotBlank UUID  identifier, @NotBlank UUID  userIdentifier,
 			@Valid @NotEmpty List<BankTransaction> transactions) {
 		super();
 		this.identifier = identifier;
@@ -46,11 +47,11 @@ public class BankAccount {
 		return transactions;
 	}
 
-	public String getIdentifier() {
+	public UUID  getIdentifier() {
 		return identifier;
 	}
 
-	public String getUserIdentifier() {
+	public UUID  getUserIdentifier() {
 		return userIdentifier;
 	}
 
