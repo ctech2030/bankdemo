@@ -7,6 +7,7 @@ import static org.junit.Assert.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -17,6 +18,9 @@ import com.shiv.bankdemo.processor.BankDataProcessor;
 import com.shiv.bankdemo.processor.TimeInterval;
 
 public class BankDataProcessorTest {
+	// Create a logger with the name of the current class
+	Logger logger = Logger.getLogger(BankDataProcessorTest.class.getName());
+
 	private BankDataProcessor bankDataProcessor;
 
 	private List<BankAccount> accounts;
@@ -51,10 +55,9 @@ public class BankDataProcessorTest {
 		assertEquals(3, ccAccount.getTransactions().size());
 		assertEquals("Bar", ccAccount.getTransactions().get(1).getDescription());
 
-		System.out.println("==========================================================================");
+		logger.info("==========================================================================");
 		// Detect the time interval ex detect that “Gym” occurs biweekly
-		System.out.println(
-				"Interval detect that “Gym” occurs : " + bankDataProcessor.detectTimeInterval(accounts, "Gym"));
+		logger.info("Interval detect that “Gym” occurs : " + bankDataProcessor.detectTimeInterval(accounts, "Gym"));
 	}
 
 	@Test
