@@ -36,6 +36,7 @@ To use the `BankDataProcessor` class, follow these steps:
 
 // Example Usage:
 List<BankAccount> accounts = // create and populate accounts
+
 String searchText = "Video streaming";
 BankDataProcessor.TimeInterval detectedInterval = BankDataProcessor.detectTimeInterval(accounts, searchText);
 print "Detected Interval: " + detectedInterval
